@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+  }
+
+  body {
+    @apply bg-background text-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Panel/Card component */
+  .panel {
+    @apply bg-background-panel border border-border rounded-lg;
+  }
+
+  .panel-hover {
+    @apply hover:bg-background-hover hover:border-border-hover transition-colors;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-md transition-colors font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-background-panel hover:bg-background-hover border border-border text-text-primary px-4 py-2 rounded-md transition-colors;
+  }
+
+  /* Table styles */
+  .table-container {
+    @apply panel overflow-x-auto;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead {
+    @apply border-b border-border;
+  }
+
+  .data-table th {
+    @apply text-left py-3 px-4 text-text-secondary font-medium;
+  }
+
+  .data-table td {
+    @apply py-3 px-4 border-t border-border;
+  }
+
+  .data-table tr {
+    @apply panel-hover cursor-pointer;
+  }
+
+  /* Slide-out panel */
+  .slide-panel {
+    @apply fixed top-0 right-0 h-full w-full md:w-2/3 lg:w-1/2 panel shadow-2xl transform transition-transform duration-300 ease-in-out z-50;
+  }
+
+  .slide-panel-backdrop {
+    @apply fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300;
+  }
+}

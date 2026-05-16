@@ -1,0 +1,134 @@
+# BreMan - Equine Breeding Management System
+
+A comprehensive breeding management system for tracking AQHA broodmares, breeding events, foaling records, and multi-generational lineage.
+
+## Tech Stack
+
+- **Frontend**: Next.js 15+ (App Router), React, TypeScript, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL + Auth + Storage)
+- **AI**: Anthropic Claude API for voice dictation parsing
+- **Hosting**: Fly.io
+- **Integration**: Google Drive, Google Photos
+
+## Project Structure
+
+```
+BreMan/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── lib/                   # Shared utilities
+│   └── supabase/         # Supabase client utilities
+│       ├── client.ts     # Browser client
+│       └── server.ts     # Server client
+├── components/           # React components (to be built)
+├── supabase/            # Supabase configuration
+│   └── migrations/      # Database migrations
+└── BREMAN_PLAN.md      # Full project specification
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account
+- Anthropic API key
+- (Optional) Google Cloud project for Drive/Photos integration
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Copy environment template:
+   ```bash
+   cp .env.local.example .env.local
+   ```
+
+4. Fill in your environment variables in `.env.local`
+
+5. Set up Supabase:
+   - Create a new Supabase project
+   - Run the migration:
+     ```bash
+     # Using Supabase CLI (recommended)
+     npx supabase db push
+
+     # Or run migrations manually in Supabase SQL editor
+     ```
+
+6. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+7. Open [http://localhost:3000](http://localhost:3000)
+
+## Development
+
+### Running Locally
+
+```bash
+npm run dev
+```
+
+### Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Database Schema
+
+See `supabase/migrations/20260515_initial_schema.sql` for the complete database schema including:
+
+- **Core Tables**: horses, breeding_events, heat_observations, ultrasound_checks, foaling_events
+- **Supporting Tables**: attachments, documents, semen_shipments, foaling_prep_observations
+- **Post-MVP**: costs, breeding_contracts, stallion_details, health_events, alerts
+
+## Key Features (Planned)
+
+### MVP Scope
+- Horse management with detailed profiles
+- Breeding event tracking
+- Heat cycle observations with ultrasound data
+- Pregnancy checks and results
+- Foaling records
+- AI-powered voice dictation for data entry
+- Google Drive/Photos integration
+- Multi-generational lineage tracking
+
+### Post-MVP
+- Automated alerts and notifications
+- Semen shipment tracking
+- Foaling watch mode
+- Contract parsing with AI
+- Financial tracking
+- Reports and analytics
+
+## Design Philosophy
+
+- **Mobile-first**: Primary data entry happens at the barn via phone
+- **Dark theme**: Easy on the eyes for long sessions and barn lighting
+- **Table-forward**: Dense, scannable list views
+- **Slide-out panels**: Quick detail views without losing context
+- **Voice-driven**: Walkie-talkie style push-to-talk for hands-free entry
+
+## Documentation
+
+- **Full Specification**: See `BREMAN_PLAN.md` for complete project plan and requirements
+- **Database Schema**: See `supabase/migrations/` for schema details
+
+## License
+
+Private project for Jack Jewison
+
+## Notes
+
+This project follows patterns established in VetBox-Pro and PDM-web for consistency across Jack's development environment.

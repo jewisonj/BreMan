@@ -1,22 +1,49 @@
 # Claude Code directory
 .claude/
 
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-
-# Logs
-*.log
-logs/
-
 # Dependencies
 node_modules/
 vendor/
 
+# Next.js
+.next/
+out/
+build/
+dist/
+
 # Environment variables
 .env
-.env.local
+.env*.local
+.env.production
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Misc
+.vercel
+.turbo
